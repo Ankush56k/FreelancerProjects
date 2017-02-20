@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="styleforweb.css">
+<title>Insert title here</title>
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["email"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("Not a valid e-mail address");
+        return false;
+    }
+}
+</script>
+</head>
+<body>
+
+<h2 align="center">Fill The Form</h2>
+<form name="myform" action="Database1" autocomplete="on" onsubmit="return validateForm();>
+	
+	<div>
+        <label for="id">User Id :</label>
+        <input type="text" id="uid" name="uid" />
+    </div>
+
+    <div>
+        <label for="name">Name :</label>
+        <input type="text" id="name" name="name" />
+    </div>
+    
+    <div>
+        <label for="mail">E-mail :</label>
+        <input type="email" id="mail" name="email" />
+    </div>
+    
+    <div>
+        <label for="address">Address :</label>
+        <textarea id="address" name="address"></textarea>
+    </div>
+    
+    <div class="button">
+        <button type="submit">Save in Database</button>
+    </div>
+</form>
+
+</br>
+<h4 align="center">Enter Title for Sheet and Click on Generate PDF</h4>
+
+<form action="PdfReady" autocomplete="on">
+	<div>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" align ="center" />
+    </div>
+    </br>
+    
+     <div class="button">
+        <button type="submit">Generate PDF</button>
+    </div>
+</form>
+
+</body>
+</html>
